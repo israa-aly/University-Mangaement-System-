@@ -1,7 +1,7 @@
 ## University Management System (JavaFX Client-Server Application)
 # Overview
 This project is a JavaFX client-server application for managing university data. 
-It allows admins of faculties to perform various operations such as adding students, professors, departments, courses, and more.
+It allows admins  manage their faculties and perform various operations such as adding students, professors, departments, courses, and more.
 The server side of the application is built using Java, while the client side utilizes JavaFX for the graphical interface. 
 The data is stored and managed using an Oracle database.
 # Features
