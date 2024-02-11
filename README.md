@@ -12,7 +12,8 @@ The data is stored and managed using an Oracle database.
 - Registration for Courses: Students can register for courses offered by the Faculty.
 - Viewing Data: Users can view information such as student details, professor details, course details, etc.
 - Data Validation: The application validates input data to ensure accuracy and consistency.
-##Installation
+- 
+## Installation
 1) Database Setup:
 Install Oracle database and create a new schema for the university management system.
 Execute the provided SQL scripts to create the necessary tables and populate initial data.
