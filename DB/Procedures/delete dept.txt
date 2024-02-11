@@ -1,0 +1,5 @@
+CREATE OR REPLACE PROCEDURE ISRAA.DeleteDept(deptId IN NUMBER) IS
+BEGIN
+        DELETE FROM department2 WHERE ID = deptId;
+END ;
+/

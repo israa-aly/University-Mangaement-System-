@@ -1,0 +1,65 @@
+CREATE TABLE ISRAA.ADMINS
+(
+  ID          NUMBER,
+  EMAIL       VARCHAR2(20 BYTE)                 NOT NULL,
+  PASSWORD    VARCHAR2(20 BYTE)                 NOT NULL,
+  FACULTY_ID  NUMBER
+)
+TABLESPACE SYSTEM
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+ALTER TABLE ISRAA.ADMINS ADD (
+  PRIMARY KEY
+ (ID)
+    USING INDEX 
+    TABLESPACE SYSTEM
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       UNLIMITED
+                PCTINCREASE      0
+                FREELISTS        1
+                FREELIST GROUPS  1
+               ),
+  UNIQUE (EMAIL)
+    USING INDEX 
+    TABLESPACE SYSTEM
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       UNLIMITED
+                PCTINCREASE      0
+                FREELISTS        1
+                FREELIST GROUPS  1
+               ));
+
+ALTER TABLE ISRAA.ADMINS ADD (
+  FOREIGN KEY (FACULTY_ID) 
+ REFERENCES ISRAA.FACULTY (ID));

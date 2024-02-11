@@ -1,0 +1,12 @@
+CREATE OR REPLACE PROCEDURE ISRAA.UpdateeCourse(
+courseId IN NUMBER,
+ p_Name IN VARCHAR2,
+    hours IN NUMBER,
+    max2 in number
+) IS
+BEGIN
+       update  course2 set name=p_Name,credit_hours=hours,max_mark=max2
+    where id=courseId;
+    commit;
+END ;
+/

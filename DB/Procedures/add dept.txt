@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE ISRAA.Add_Dept(
+    p_Name IN VARCHAR2,
+    p_adminId in number
+) AS
+    v_fac number;
+BEGIN
+    select faculty_id into v_fac from admins where id=p_adminId;
+
+    INSERT INTO department2 (ID, dept_Name,faculty_id)
+    VALUES (Department2_seq.NEXTVAL, p_Name,v_fac);
+    COMMIT;
+END ;
+/

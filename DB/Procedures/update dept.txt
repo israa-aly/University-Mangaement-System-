@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE ISRAA.updateDept(
+    p_id in number,
+    p_Name IN VARCHAR2,
+    head in number
+) AS
+  
+BEGIN
+    -- Insert into Student table
+   update  department2 set dept_name=p_Name,head_id=head
+    where id=p_id;
+    COMMIT;
+END ;
+/

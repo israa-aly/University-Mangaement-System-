@@ -1,0 +1,42 @@
+CREATE OR REPLACE PROCEDURE ISRAA.UpdateGrade(
+    studentId IN NUMBER,
+    courseId IN NUMBER,
+    v_mark IN NUMBER
+) IS
+    v_grade NUMBER;
+BEGIN
+    -- Check if the mark is within the grade ranges
+    IF v_mark >= 90 THEN
+        v_grade := 1; -- Grade 'A'
+    ELSIF v_mark >= 85 THEN
+        v_grade := 2; -- Grade 'A-'
+    ELSIF v_mark >= 80 THEN
+        v_grade := 3; -- Grade 'B+'
+    ELSIF v_mark >= 75 THEN
+        v_grade := 4; -- Grade 'B'
+    ELSIF v_mark >= 70 THEN
+        v_grade := 5; -- Grade 'B-'
+    ELSIF v_mark >= 65 THEN
+        v_grade := 6; -- Grade 'C+'
+    ELSIF v_mark >= 60 THEN
+        v_grade := 7; -- Grade 'C'
+    ELSIF v_mark >= 55 THEN
+        v_grade := 8; -- Grade 'C-'
+    ELSIF v_mark >= 50 THEN
+        v_grade := 9; -- Grade 'D+'
+    ELSIF v_mark >= 45 THEN
+        v_grade := 10; -- Grade 'D'
+    ELSIF v_mark >= 40 THEN
+        v_grade := 11; -- Grade 'D-'
+    ELSE
+        v_grade := 12; -- Grade 'F'
+    END IF;
+
+    -- Update the Student_course table
+    UPDATE Student_course2
+    SET mark = v_mark, grade_id = v_grade
+    WHERE student_id = studentId AND course_id = courseId;
+
+    COMMIT;
+END;
+/

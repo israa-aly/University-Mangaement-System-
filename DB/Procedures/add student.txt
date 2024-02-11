@@ -1,0 +1,26 @@
+CREATE OR REPLACE PROCEDURE ISRAA.Add_Student(
+
+    p_fName IN VARCHAR2,
+    p_lName IN VARCHAR2,
+    P_dob IN varchar2,
+    p_Phone IN VARCHAR2,
+   p_city in varchar2,
+   p_email in varchar2,
+   p_password in varchar2,
+   p_Dept IN varchar2,
+   p_gender in varchar2,
+   p_adminId in number
+) AS
+ v_id number;
+ v_fac number;
+BEGIN
+    select faculty_id into v_fac from admins where id=p_adminId;
+    select id into v_id  from department2  where dept_name  =p_Dept and faculty_id =(select faculty_id from admins where id = p_adminId  );
+    INSERT INTO Student2 (ID, fName,lname,dob, city,dept_id,email,password, phone,gender,faculty_id)
+    VALUES (Student2_seq.NEXTVAL, p_fName,p_lName,P_dob,p_city,v_id,p_email, p_password,p_Phone,p_gender,v_fac);
+    COMMIT;
+END ;
+show errors;
+
+
+

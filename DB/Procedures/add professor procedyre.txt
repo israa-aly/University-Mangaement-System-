@@ -1,0 +1,24 @@
+CREATE OR REPLACE PROCEDURE ISRAA.Add_Professor(
+
+    p_fName IN VARCHAR2,
+    p_lName IN VARCHAR2,
+    P_dob IN varchar2,
+    p_Phone IN VARCHAR2,
+   p_city in varchar2,
+   p_email in varchar2,
+   p_password in varchar2,
+   p_Dept IN varchar2,
+   p_salary in number,
+   p_degree in varchar2,
+   p_adminId number
+) AS
+   v_id number;
+   v_fac number;
+BEGIN
+  select faculty_id into v_fac from admins where id=p_adminId ;
+    select id into v_id  from department2  where dept_name  =p_Dept and faculty_id=(select faculty_id from admins where id =p_adminId );
+    INSERT INTO teacher2 (ID, fName,lname,dob, city,dept_id,email,password, phone,salary,degree,faculty_id)
+    VALUES (teacher2_seq.NEXTVAL, p_fName,p_lName,P_dob,p_city,v_id,p_email, p_password,p_Phone,p_salary,p_degree,v_fac);
+    COMMIT;
+    
+END ;

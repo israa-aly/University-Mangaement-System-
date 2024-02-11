@@ -1,0 +1,79 @@
+CREATE TABLE ISRAA.STUDENT2
+(
+  ID          NUMBER,
+  FNAME       VARCHAR2(100 BYTE)                NOT NULL,
+  LNAME       VARCHAR2(100 BYTE)                NOT NULL,
+  DOB         VARCHAR2(30 BYTE)                 NOT NULL,
+  GENDER      VARCHAR2(10 BYTE)                 NOT NULL,
+  CITY        VARCHAR2(50 BYTE)                 NOT NULL,
+  EMAIL       VARCHAR2(50 BYTE)                 NOT NULL,
+  PASSWORD    VARCHAR2(50 BYTE)                 NOT NULL,
+  PHONE       VARCHAR2(20 BYTE)                 NOT NULL,
+  DEPT_ID     NUMBER                            NOT NULL,
+  GPA         NUMBER,
+  FACULTY_ID  NUMBER(10)
+)
+TABLESPACE SYSTEM
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+ALTER TABLE ISRAA.STUDENT2 ADD (
+  PRIMARY KEY
+ (ID)
+    USING INDEX 
+    TABLESPACE SYSTEM
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       UNLIMITED
+                PCTINCREASE      0
+                FREELISTS        1
+                FREELIST GROUPS  1
+               ),
+  UNIQUE (EMAIL)
+    USING INDEX 
+    TABLESPACE SYSTEM
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       UNLIMITED
+                PCTINCREASE      0
+                FREELISTS        1
+                FREELIST GROUPS  1
+               ));
+
+ALTER TABLE ISRAA.STUDENT2 ADD (
+  CONSTRAINT FKSTD_FACULTY_ID 
+ FOREIGN KEY (FACULTY_ID) 
+ REFERENCES ISRAA.FACULTY (ID)
+    ON DELETE SET NULL,
+  CONSTRAINT FK_STUDENT_DEPARTMENT2 
+ FOREIGN KEY (DEPT_ID) 
+ REFERENCES ISRAA.DEPARTMENT2 (ID)
+    ON DELETE SET NULL);

@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE ISRAA.update_Student(
+
+p_id in number,
+     p_fName IN VARCHAR2,
+    p_lName IN VARCHAR2,
+    p_Phone IN VARCHAR2,
+   p_city in varchar2,
+   p_email in varchar2,
+   p_password in varchar2,
+   p_Dept IN varchar2,
+    p_adminId number
+) AS
+ v_id number;
+BEGIN
+    -- Insert into Student table
+    select id into v_id  from department2  where dept_name  =p_Dept and faculty_id=(select faculty_id from admins where id =p_adminId );
+   update  Student2 set fname=p_fName,lname=p_lName,phone=p_Phone,city=p_city,email=p_email,password=p_password,dept_id=v_id
+    where id=p_id; 
+    COMMIT;
+END ;
+/

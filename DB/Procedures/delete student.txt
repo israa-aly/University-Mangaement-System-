@@ -1,0 +1,6 @@
+CREATE OR REPLACE PROCEDURE ISRAA.DeleteStudent(p_StudentID IN NUMBER) IS
+BEGIN
+  
+        DELETE FROM Student2 WHERE ID = p_StudentID;
+END DeleteStudent;
+/

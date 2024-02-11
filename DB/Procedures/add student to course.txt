@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE ISRAA.AddStudentCourse(
+    p_Name IN VARCHAR2,
+    id IN NUMBER,
+    p_year in number,
+    p_sem in number
+   
+) AS
+v_id number;
+BEGIN
+    -- Insert into Student table
+    select id into v_id from course2 where name=p_Name;
+    INSERT INTO Student_course2 (student_id, course_id, mark,year,semester)
+    VALUES (id,v_id, 0, p_year,p_sem);
+    COMMIT;
+END ;
+/

@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE ISRAA.Add_Course(
+    p_Name IN VARCHAR2,
+    hours IN NUMBER,
+    max2 in number,
+    p_adminId in number
+) AS
+   v_fac number;
+BEGIN
+  
+     select faculty_id into v_fac from admins where id=p_adminId;
+    INSERT INTO course2 (ID, name, credit_hours,max_mark,faculty_id)
+    VALUES (course2_seq.NEXTVAL,p_Name, hours, max2,v_fac);
+    COMMIT;
+END ;
+/

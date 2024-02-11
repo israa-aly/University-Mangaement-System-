@@ -1,0 +1,14 @@
+CREATE OR REPLACE PROCEDURE ISRAA.AddDeptCourse(
+
+    p_Name IN VARCHAR2,
+    p_id in number
+   
+) AS
+    v_id number;
+BEGIN
+    select id into v_id from course2 c where c.name =p_Name;
+    INSERT INTO course_department 
+    VALUES (v_id,p_id);
+    COMMIT;
+END ;
+/

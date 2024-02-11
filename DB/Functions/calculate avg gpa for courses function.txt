@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION ISRAA.calculate_avg_gpa(p_course_id IN NUMBER) RETURN NUMBER IS
+    v_total_grade_points NUMBER := 0;
+    v_total_credit_hours NUMBER := 0;
+    v_avg_gpa NUMBER := 0;
+BEGIN
+    SELECT NVL(SUM(g.grade_points * c.credit_hours), 0), NVL(SUM(c.credit_hours), 0)
+    INTO v_total_grade_points, v_total_credit_hours
+    FROM student_course2 cs
+    JOIN grades g ON cs.grade_id = g.id
+    JOIN course2 c ON cs.course_id = c.id
+    WHERE cs.course_id = p_course_id;
+    IF v_total_credit_hours > 0 THEN
+        v_avg_gpa := v_total_grade_points / v_total_credit_hours;
+    END IF;
+    RETURN v_avg_gpa;
+END calculate_avg_gpa;
+/

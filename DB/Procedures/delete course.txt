@@ -1,0 +1,6 @@
+CREATE OR REPLACE PROCEDURE ISRAA.DeleteCourse(courseId IN NUMBER) IS
+BEGIN
+        DELETE FROM Course2 WHERE ID = courseId;
+        commit;
+END ;
+/

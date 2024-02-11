@@ -1,0 +1,5 @@
+CREATE OR REPLACE PROCEDURE ISRAA.DeleteProfessor(p_ProfessorID IN NUMBER) IS
+BEGIN
+        DELETE FROM teacher2 WHERE ID = p_ProfessorID;
+END ;
+/
