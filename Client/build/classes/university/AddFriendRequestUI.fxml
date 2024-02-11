@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="596.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <TableView layoutX="20.0" layoutY="107.0" prefHeight="330.0" prefWidth="266.0">
+        <columns>
+          <TableColumn editable="false" prefWidth="136.0" sortable="false" text="Username" />
+            <TableColumn editable="false" prefWidth="129.0" sortable="false" text="Email" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtUserName" layoutX="20.0" layoutY="68.0" prefHeight="25.0" prefWidth="197.0" promptText="Enter username to search" style="-fx-border-color: #7badec; -fx-border-radius: 15; -fx-background-radius: 15;" />
+      <Button fx:id="btnSearch" layoutX="230.0" layoutY="68.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: transparent; -fx-border-color: #79a9e7;" text="Search" textFill="#587ea9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView layoutX="316.0" layoutY="68.0" prefHeight="370.0" prefWidth="266.0">
+         <columns>
+            <TableColumn editable="false" prefWidth="132.0" sortable="false" text="Username" />
+            <TableColumn editable="false" prefWidth="132.0" sortable="false" text="Email" />
+         </columns>
+      </TableView>
+      <Label layoutX="401.0" layoutY="30.0" text="Pending List" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAcceptFriend" layoutX="316.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: reansparent; -fx-border-color: #79a9e7;" text="Accept" textFill="#587ea9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnDeclineFriend" layoutX="453.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: reansparent; -fx-border-color: #79a9e7;" text="Decline" textFill="#587ea9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="78.0" layoutY="30.0" text="Make A New Friend" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAddFriend" layoutX="89.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-border-radius: 15; -fx-background-radius: 15; -fx-background-color: reansparent; -fx-border-color: #79a9e7;" text="Add Friend" textFill="#587ea9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
